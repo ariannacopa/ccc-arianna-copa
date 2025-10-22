@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --bg: #000;
+  --grid-bg: #16181d;
+  --cell: #A0A09F;
+  --cell-filled: white;
+  --cell-hover: gray;
+  --gap: 30px;
+  --cell-size: 6px;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  font-weight: 400;
+  color: white;
+  -webkit-app-region: drag;
+  padding: 4px 3px;
+}
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(10, var(--cell-size));
+  grid-auto-rows: var(--cell-size);
+  gap: var(--gap);
+}
+
+/* dots */
+.cell {
+  width: 6px;
+  height: 6px;
+  margin-left: 10px;
+  margin-top: 10px;
+  background: var(--cell);
+  transition: all 0.5s ease-in-out;
+  border-radius: 50%;
+  display: inline-block;
+  animation: blink 2s ease-in-out infinite;
+}
+
+.cell:hover {
+  background: var(--cell-hover);
+}
+
+/* blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.stat {
+  display: none;
+}
+
+.time {
+  display: none;
+}
+
+/* pacman */
+#pacman {
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  transform: translate(-50%, -50%); 
+  transition: top 0.2s ease-in-out, left 0.2s ease-in-out;
+}
+
+/* frutta / fantasma */
+.cell.special-pellet {
+  background: transparent;
+  width: 20px;      
+  height: 20px;
+  margin-left: 3px;  
+  margin-top: 3px;
+  display: flex;    
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* proporzioni */
+.cell.special-pellet svg,
+.cell.special-pellet > svg {
+  width: 100%;
+  height: 100%;
+  display: block;        
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.cell svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.stat {
+  display: none;
+}
+
+.time {
+  display: none;
+}
+
+#special-pellet-counter {
+  font-size: 8.5px; 
+  font-weight: lighter;
+  color: gray;
+  margin-top: 30px; 
+  padding-left: 5px; 
+  display: flex; 
+  align-items: center;
+  border-top: 0.5px solid gray; 
+  padding-top: 5px;
+  gap: 10px; 
+  justify-content: flex-start;
+}
+
+.counter-item {
+  display: flex;
+  align-items: center;
+}
+
+.counter-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pellet-icon svg path {
+  fill: gray; 
+}
+
+.ghost-icon svg path {
+  fill: gray; 
+}
+
+.counter-divider {
+  color: gray;
+}
