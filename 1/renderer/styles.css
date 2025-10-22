@@ -1,0 +1,97 @@
+body {
+-webkit-app-region: drag;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+background-color: darkgray;
+color: rgb(255, 255, 255);
+padding: 0;
+margin: 0;
+}
+
+.row {
+display: flex;
+height: 100vh;
+flex-direction: column-reverse;
+justify-content: space-between;
+}
+
+.col-1 {
+flex: 1;
+padding: 10px;
+display: flex;
+align-items: center;
+justify-content: space-around;
+}
+
+.col-2 {
+ padding: 20px;
+}
+
+.shape {
+transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+background: white;
+}
+
+#shape-cpu {
+width: 55px;
+height: 35px;
+position: fixed;
+top: 165px;
+left: 55px;
+transform-origin: center center;
+will-change: transform;
+}
+
+#shape-ram {
+width: 55px;
+height: 55px;
+background-color: white;
+transform: rotate(90deg);
+position: fixed;
+border-radius: 50%;
+top: 160px;
+right: 60px;
+transform-origin: center;
+transition: all 0.3s ease;
+}
+
+#shape-mouse {
+width: 200px;
+height: 190px;
+top: 160px;
+left: 50px;
+position: absolute;
+background: #ffffff;
+border-radius: 50%;
+clip-path: inset(50% 0 0 0);
+-webkit-mask: radial-gradient(circle, transparent 50%, black 50%);
+mask: radial-gradient(circle, transparent 50%, black 50%);
+transform-origin: center;
+transition: transform 0.3s ease-out;
+}
+
+.inverted {
+background-color: white !important;
+border: 1px solid darkgray !important;
+color: darkgray !important;
+}
+
+.inverted .shape {
+    background-color: darkgray !important;
+}
+
+.left-side, .right-side {
+transition: opacity 0.3s ease;
+}
+
+body:not(.inverted) .right-side {
+display: none;
+}
+
+body.inverted .left-side {
+display: none;
+}
+
+.both-sides {
+display: block !important;
+}
